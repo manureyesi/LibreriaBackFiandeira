@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Usuarios")
+@Table(name = "USUARIOS")
 public class Usuario implements Serializable {
 
 	/**
@@ -17,22 +17,22 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 6524631780164189774L;
 
 	@Id
-	@Column(name = "id", unique = true, nullable = false)
+	@Column(name = "ID", unique = true, nullable = false)
 	private Long id;
 	
-	@Column(name = "nombre", nullable = false)
+	@Column(name = "NOMBRE", nullable = false)
 	private String nombre;
 	
-	@Column(name = "apellidos", nullable = true)
+	@Column(name = "APELLIDOS", nullable = true)
 	private String apellidos;
 	
-	@Column(name = "correo", unique = true, nullable = false)
+	@Column(name = "CORREO", unique = true, nullable = false)
 	private String correo;
 	
-	@Column(name = "salt", nullable = false)
+	@Column(name = "SALT", nullable = false)
 	private String salt;
 	
-	@Column(name = "paswordSalt", nullable = false)
+	@Column(name = "PASSWORD_SALT", nullable = false)
 	private String paswordSalt;
 
 	/**
