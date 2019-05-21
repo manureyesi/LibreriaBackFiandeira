@@ -4,8 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "USUARIOS")
@@ -17,6 +20,8 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 6524631780164189774L;
 
 	@Id
+	@GenericGenerator(name = "IDGenerator", strategy = "increment")
+	@GeneratedValue(generator = "IDGenerator")
 	@Column(name = "ID", unique = true, nullable = false)
 	private Long id;
 	
@@ -36,6 +41,13 @@ public class Usuario implements Serializable {
 	private String paswordSalt;
 
 	/**
+	 * Usuario
+	 */
+	public Usuario() {
+	}
+
+	/**
+	 * Usuario
 	 * @param nombre
 	 * @param apellidos
 	 * @param correo
