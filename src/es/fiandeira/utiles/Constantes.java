@@ -11,4 +11,7 @@ public class Constantes {
 	public static final Boolean REFRESCABLE_TOKEN_DEFECTO = true;
 	public static final Boolean INVALIDADO_TOKEN_DEFECTO = true;
 	
+	//Patrones
+	public static final String PATRON_CORREO = "^[\\w ,´]{0,}[<]{0,1}([a-zA-Z0-9\\.\\_\\%\\+\\-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}[>]*)$"
+;	
 }
