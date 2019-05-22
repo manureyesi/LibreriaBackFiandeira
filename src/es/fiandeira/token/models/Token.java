@@ -32,6 +32,9 @@ public class Token implements Serializable {
 	@Column(name = "TOKEN_REFRESCO", nullable = false, unique = true)
 	private String tokenRefresco;
 	
+	@Column(name = "FECHA_CREACION", nullable = false)
+	private Date fechaCreacion;
+	
 	@Column(name = "FECHA_EXPIRACION", nullable = false)
 	private Date fechaExpiracion;
 	
@@ -63,10 +66,9 @@ public class Token implements Serializable {
 	}
 
 	/**
-	 * Token
-	 * @param id
 	 * @param token
 	 * @param tokenRefresco
+	 * @param fechaCreacion
 	 * @param fechaExpiracion
 	 * @param fechaExpiracionTokenRefresco
 	 * @param idApp
@@ -76,11 +78,12 @@ public class Token implements Serializable {
 	 * @param refrescable
 	 * @param horasValidez
 	 */
-	public Token(Long id, String token, String tokenRefresco, Date fechaExpiracion, Date fechaExpiracionTokenRefresco,
-			String idApp, Long idUsuario, Boolean invalidado, String ip, Boolean refrescable, Integer horasValidez) {
-		this.id = id;
+	public Token(String token, String tokenRefresco, Date fechaCreacion, Date fechaExpiracion,
+			Date fechaExpiracionTokenRefresco, String idApp, Long idUsuario, Boolean invalidado, String ip,
+			Boolean refrescable, Integer horasValidez) {
 		this.token = token;
 		this.tokenRefresco = tokenRefresco;
+		this.fechaCreacion = fechaCreacion;
 		this.fechaExpiracion = fechaExpiracion;
 		this.fechaExpiracionTokenRefresco = fechaExpiracionTokenRefresco;
 		this.idApp = idApp;
@@ -131,6 +134,20 @@ public class Token implements Serializable {
 	 */
 	public void setTokenRefresco(String tokenRefresco) {
 		this.tokenRefresco = tokenRefresco;
+	}
+
+	/**
+	 * @return the fechaCreacion
+	 */
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	/**
+	 * @param fechaCreacion the fechaCreacion to set
+	 */
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
 	}
 
 	/**
@@ -257,6 +274,8 @@ public class Token implements Serializable {
 		builder.append(token);
 		builder.append(", tokenRefresco=");
 		builder.append(tokenRefresco);
+		builder.append(", fechaCreacion=");
+		builder.append(fechaCreacion);
 		builder.append(", fechaExpiracion=");
 		builder.append(fechaExpiracion);
 		builder.append(", fechaExpiracionTokenRefresco=");
@@ -276,5 +295,5 @@ public class Token implements Serializable {
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
 }
