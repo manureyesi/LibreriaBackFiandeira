@@ -13,6 +13,7 @@ import es.fiandeira.rangos.models.RangosPK;
 @Repository
 public interface RangosRepository extends JpaRepository<Rangos, RangosPK> {
 
+	//Buscar usuarios por rango
 	@Query("SELECT u FROM Rangos u WHERE u.rangosPK.idUsuario = :idUsuario")
 	public List<Rangos> buscarRangosPorIdUsuario(@Param("idUsuario") Long idUsuario);
 	
